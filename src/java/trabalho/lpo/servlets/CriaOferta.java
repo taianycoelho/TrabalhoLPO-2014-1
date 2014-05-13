@@ -14,7 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import trabalho.lpo.db.OfertasDAO;
+//import trabalho.lpo.db.OfertasDAO;
 import trabalho.lpo.classes.Oferta;
 
 /**
@@ -24,12 +24,12 @@ import trabalho.lpo.classes.Oferta;
 @WebServlet(name = "CriaOferta", urlPatterns = {"/criar-oferta.html"})
 public class CriaOferta extends HttpServlet {
 
-    public static OfertasDAO dao = null;
+    //public static OfertasDAO dao = null;
     
     public CriaOferta() throws ServletException {
         
         try{
-        dao = new OfertasDAO();
+        //dao = new OfertasDAO();
         
         }catch(Exception ex){ 
            throw new ServletException("Erro ao criar o comando SQL"+ex);
