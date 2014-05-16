@@ -127,7 +127,7 @@
                 <input type="text" name="desejo" value="" />
             </div>
             
-            <input type="submit" value="Enviar" class="btnForm btnFormEnviar" />            
+            <input type="submit" value="Enviar" name ="Criar" class="btnForm btnFormEnviar" />            
             <input type="reset" value="Limpar" class="btnForm" />
         
         </form>
