@@ -1,3 +1,8 @@
+<%-- 
+    Document   : cadastro-oferta-resultado
+    Created on : 13/05/2014, 23:27:11
+    Author     : guilhermecortes
+--%>
 
 <!DOCTYPE html>
 <html>
