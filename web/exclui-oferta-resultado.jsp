@@ -1,14 +1,15 @@
 <%-- 
-    Document   : lista-oferta
-    Created on : 13/05/2014, 23:27:23
+    Document   : cadastro-oferta-resultado
+    Created on : 13/05/2014, 23:27:11
     Author     : guilhermecortes
 --%>
 
-<html lang="pt-BR">
-    
+<%@page import="trabalho.lpo.classes.Oferta"%>
+<!DOCTYPE html>
+<html>
     <head>
-        <title>Lista Ofertas - Trabalho LPO</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Criar Oferta: Resultado</title>
         
         <!-- CSS -->
         <style>
@@ -30,11 +31,12 @@
             
             a
             {
-                background-color: #EDEEF8;
-                border: 1px solid #050AD9;
+                background-color: #D3D3D3;
+                border: 1px solid #000000;
                 border-radius: 5px;
-                color: #050AD9;
+                color: #323232;
                 float: left;
+                margin: 0 20px 0 0;
                 padding: 5px 10px;
                 text-decoration: none;
             }
@@ -47,35 +49,22 @@
             
             
         </style>
-        <!-- CSS -->
+        <!-- CSS -->        
+        
+        
     </head>
-    
     <body>
         
-        <h1>Lista Ofertas - Trabalho LPO</h1> <br>
         
-        <table>
-            
-            <tr>
-                <th>#</th>
-                <th>Usuario</th>
-                <th>Oferta</th>
-                <th>Produto</th>
-                <th>Desejo</th>
-            </tr>
-
-            <tr>
-                <td>1</td>
-                <td>Fulano</td>
-                <td>Oferta tal</td>
-                <td>Produto tal</td>
-                <td>Desejo do usuário</td>
-            </tr>
-            
-        </table>
+        <!-- Tela para exibir o resultado do cadastro da oferta -->
+        <h1>Exclui Oferta: Resultado</h1>
         
-        <p><a href='cadastro_oferta.jsp'>Cadastrar oferta</a></p>
-    
+        <p>
+            Oferta excluída do com sucesso!
+        </p>
+        
+        <p><a href='criar-oferta.html'>Cadastrar oferta</a></p>
+        <p><a href='lista-oferta.html'>Listar ofertas</a></p>
+        
     </body>
-    
 </html>

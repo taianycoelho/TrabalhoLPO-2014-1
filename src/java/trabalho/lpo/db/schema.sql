@@ -2,7 +2,8 @@ CREATE TABLE oferta (
 	cod_oferta int not null generated always AS identity,
         nome_oferta VARCHAR(80),
 	nome_usuario varchar(80),
-	nome_produto VARCHAR(80) 
+	nome_produto VARCHAR(80),
+        desejo VARCHAR(80)
 );
 
 CREATE TABLE proposta (
