@@ -7,7 +7,6 @@
 package trabalho.lpo.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 //import trabalho.lpo.db.OfertasDAO;
 import trabalho.lpo.classes.Oferta;
+import trabalho.lpo.db.OfertaDAO;
 
 /**
  *
@@ -24,16 +24,17 @@ import trabalho.lpo.classes.Oferta;
 @WebServlet(name = "CriaOferta", urlPatterns = {"/criar-oferta.html"})
 public class CriaOferta extends HttpServlet {
 
-    //public static OfertasDAO dao = null;
+    private static OfertaDAO dao = null;
     
     public CriaOferta() throws ServletException {
         
-        try{
-        //dao = new OfertasDAO();
-        
-        }catch(Exception ex){ 
+        try
+        {
+            dao = new OfertaDAO();
+        }
+        catch(Exception ex)
+        { 
            throw new ServletException("Erro ao criar o comando SQL"+ex);
-            
         }
     }
 
@@ -57,7 +58,7 @@ public class CriaOferta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("cadastro-oferta.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastro-oferta.jsp");
         dispatcher.forward(request, response);
       
     }
@@ -74,15 +75,16 @@ public class CriaOferta extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        try{
+           
         Oferta oferta = new Oferta(); 
-        oferta.setNome_usuario(request.getParameter("usuario"));
-        oferta.setNome_oferta(request.getParameter("oferta"));
-        oferta.setProduto(request.getParameter("produto"));
+        oferta.setNome_usuario(request.getParameter("nome_usuario"));
+        oferta.setNome_oferta(request.getParameter("nome_oferta"));
+        oferta.setNome_produto(request.getParameter("nome_produto"));
         oferta.setDesejo(request.getParameter("desejo"));
         
         
-        //dao.criar(oferta);
-        response.sendRedirect("listar.html");
+        dao.criarOferta(oferta);
+        response.sendRedirect("lista-oferta.html");
        } catch(Exception ex){
            
            throw new ServletException(ex);      

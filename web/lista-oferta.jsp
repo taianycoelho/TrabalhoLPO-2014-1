@@ -3,7 +3,11 @@
     Created on : 13/05/2014, 23:27:23
     Author     : guilhermecortes
 --%>
-
+<%@page import="trabalho.lpo.classes.Oferta"%>
+<%@page import="java.util.List"%>
+<%
+    List<Oferta> ofertas = (List<Oferta>)request.getAttribute("ofertas");
+%>
 <html lang="pt-BR">
     
     <head>
@@ -30,10 +34,10 @@
             
             a
             {
-                background-color: #EDEEF8;
-                border: 1px solid #050AD9;
+                background-color: #D3D3D3;
+                border: 1px solid #000000;
                 border-radius: 5px;
-                color: #050AD9;
+                color: #323232;
                 float: left;
                 padding: 5px 10px;
                 text-decoration: none;
@@ -63,18 +67,26 @@
                 <th>Produto</th>
                 <th>Desejo</th>
             </tr>
-
+            <%
+                for (Oferta oferta : ofertas)//individuo : coletivo
+                {
+            %>
             <tr>
-                <td>1</td>
-                <td>Fulano</td>
-                <td>Oferta tal</td>
-                <td>Produto tal</td>
-                <td>Desejo do usuário</td>
+                <td><%= oferta.getCod_oferta() %></td>
+                <td><%= oferta.getNome_usuario() %></td>
+                <td><%= oferta.getNome_oferta() %></td>
+                <td><%= oferta.getNome_produto() %></td>
+                <td><%= oferta.getDesejo() %></td>
+                <td><a href='exclui.do?cod_oferta=<%= oferta.getCod_oferta() %>'>Excluir</a></td>
+                <td><a href='edita-oferta.do?cod_oferta=<%= oferta.getCod_oferta() %>'>Editar</a></td>
             </tr>
-            
+            <%
+                }
+            %>
         </table>
         
-        <p><a href='cadastro_oferta.jsp'>Cadastrar oferta</a></p>
+        <p><a href='criar-oferta.html'>Cadastrar oferta</a></p>
+            <a href="index.jsp">Home</a>
     
     </body>
     

@@ -4,6 +4,7 @@
     Author     : guilhermecortes
 --%>
 
+<%@page import="trabalho.lpo.classes.Oferta"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -102,35 +103,56 @@
                 background-color: #0C631C;
             }
             
+            a
+            {
+                background-color: #6D6C6C;
+                border-radius: 5px;
+                color: #fff;
+                float: right;
+                font: 12px arial;
+                margin: 10px 10px 0 0;
+                padding: 7px 35px 8px;
+                text-decoration: none;
+            }
+            
+            a:hover
+            {
+                background-color: #868585;
+            }
+            
         </style>
         <!-- CSS -->
         
     </head>
     <body>
+        <% 
+            Oferta oferta = (Oferta)request.getAttribute("oferta");
+        %>       
         <h1>Cadastro de ofertas</h1>
-        <form action="" method="POST">
-            
+        <form action="salvar.do" method="POST">
+            <input type="hidden" name="cod_oferta" value="<%= oferta.getCod_oferta() %>" />
             <div>
                 <label>Usuário:</label>
-                <input type="text" name="nome_usuario" value="" />
+                <input type="text" name="nome_usuario" value="<%= oferta.getNome_usuario() %>" />
             </div>
             <div>
                 <label>Nome da oferta: </label>
-                <input type="text" name="nome_oferta" value="" />
+                <input type="text" name="nome_oferta" value="<%= oferta.getNome_oferta() %>" />
             </div>
             <div>
                 <label>Produto: </label>
-                <input type="text" name="nome_produto" value="" />
+                <input type="text" name="nome_produto" value="<%= oferta.getNome_produto() %>" />
             </div>
             <div>
                 <label>Desejo: </label>
-                <input type="text" name="desejo" value="" />
+                <input type="text" name="desejo" value="<%= oferta.getDesejo() %>" />
             </div>
             
-            <input type="submit" value="Enviar" class="btnForm btnFormEnviar" />            
-            <input type="reset" value="Limpar" class="btnForm" />
-            <a href="index.jsp">Home</a>
+            <input type="submit" value="Salvar" class="btnForm btnFormEnviar" />
+            <a href="lista-oferta.html">Voltar</a>
         
         </form>
+            
+            
     </body>
 </html>
