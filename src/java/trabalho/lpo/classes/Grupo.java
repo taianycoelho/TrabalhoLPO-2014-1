@@ -28,6 +28,10 @@ public class Grupo {
       
     }
 
+    public Grupo() {
+       
+    }
+
     /**
      * @return the codGrupo
      */

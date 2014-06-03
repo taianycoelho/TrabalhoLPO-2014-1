@@ -4,14 +4,10 @@
  */
 package trabalho.lpo.servlets;
 
-import javax.servlet.annotation.WebServlet;
-
 /**
  *
  * @author curso
  */
-@WebServlet(name = "CriaGrupo", urlPatterns = {"/criar-grupo.html"})
-public class CriarGrupo {
-    
+public class EditaGrupo {
     
 }
