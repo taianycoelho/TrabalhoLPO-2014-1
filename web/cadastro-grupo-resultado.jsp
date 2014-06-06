@@ -1,17 +1,30 @@
 <%-- 
     Document   : cadastro-grupo-resultado
-    Created on : 03/06/2014, 20:14:06
-    Author     : curso
+    Author     : taiany.coelho
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="trabalho.lpo.classes.Grupo"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Criar Proposta: Resultado</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        
+        <% 
+            Grupo grupo = (Grupo)request.getAttribute("grupo");
+        %>        
+        
+        <!-- Tela para exibir o resultado do cadastro da oferta -->
+        <h1>Criar Proposta: Resultado</h1>
+        
+        <p>
+            Novo Grupo: 
+            usuário  <%= grupo.getDescricao()%> 
+            do titulo: <%= grupo.getTitulo()%>
+            da fase <%= grupo.getFase()%>
+        </p>
+        
     </body>
 </html>

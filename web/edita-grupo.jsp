@@ -1,14 +1,15 @@
 <%-- 
-    Document   : cadastro-oferta-resultado
-    Created on : 03/06/2014, 20:01:10
-    Author     : taianycoelho
+    Document   : edita-grupo
+    Created on : 06/06/2014, 19:55:00
+    Author     : taiany.coelho
 --%>
 
 
+<%@page import="trabalho.lpo.classes.Grupo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <<head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de grupos - Trabalho LPO-2014-1</title>
         
@@ -103,9 +104,52 @@
                 background-color: #0C631C;
             }
             
+            a
+            {
+                background-color: #6D6C6C;
+                border-radius: 5px;
+                color: #fff;
+                float: right;
+                font: 12px arial;
+                margin: 10px 10px 0 0;
+                padding: 7px 35px 8px;
+                text-decoration: none;
+            }
+            
+            a:hover
+            {
+                background-color: #868585;
+            }
+            
         </style>
         <!-- CSS -->
         
     </head>
- 
+    <body>
+        <% 
+            Grupo grupo = (Grupo)request.getAttribute("grupo");
+        %>       
+        <h1>Cadastro de Grupo:</h1>
+        <form action="salvargrupo.do" method="POST">
+            <input type="hidden" name="cod_grupo" value="<%= grupo.getCodGrupo()%>" />
+            <div>
+                <label>Descrição Grupo:</label>
+                <input type="text" name="descricao" value="<%= grupo.getDescricao()%>" />
+            </div>
+            <div>
+                <label>Titulo: </label>
+                <input type="text" name="titulo" value="<%= grupo.getTitulo()%>" />
+            </div>
+            <div>
+                <label>Fase: </label>
+                <input type="text" name="nome_produto" value="<%= grupo.getFase()%>" />
+            </div>
+        
+            <input type="submit" value="Salvar" class="btnForm btnFormEnviar" />
+            <a href="lista-grupo.html">Voltar</a>
+        
+        </form>
+            
+            
+    </body>
 </html>
