@@ -130,7 +130,7 @@
             Grupo grupo = (Grupo)request.getAttribute("grupo");
         %>       
         <h1>Cadastro de Grupo:</h1>
-        <form action="salvargrupo.do" method="POST">
+        <form action="salvar-grupo.do" method="POST">
             <input type="hidden" name="cod_grupo" value="<%= grupo.getCodGrupo()%>" />
             <div>
                 <label>Descrição Grupo:</label>
@@ -142,9 +142,13 @@
             </div>
             <div>
                 <label>Fase: </label>
-                <input type="text" name="nome_produto" value="<%= grupo.getFase()%>" />
+                <select name="fase" size="2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
             </div>
-        
+            
             <input type="submit" value="Salvar" class="btnForm btnFormEnviar" />
             <a href="lista-grupo.html">Voltar</a>
         

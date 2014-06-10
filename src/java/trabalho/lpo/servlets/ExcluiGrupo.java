@@ -32,7 +32,7 @@ import trabalho.lpo.db.GrupoDAO;
  *
  * @author guilhermecortes
  */
-@WebServlet(name = "ExcluiGrupo", urlPatterns = {"/excluigrupo.do"})
+@WebServlet(name = "ExcluiGrupo", urlPatterns = {"/exclui-grupo.do"})
 public class ExcluiGrupo extends HttpServlet {
     private static PreparedStatement comando = null;
     

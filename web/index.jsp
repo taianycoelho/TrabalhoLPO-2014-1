@@ -57,6 +57,8 @@
         <a href="lista-oferta.html">Listar Ofertas</a>
         <a href="criar-proposta.html">Cadastrar Proposta</a>
         <a href="lista-proposta.html">Listar Proposta</a>
+        <a href="criar-grupo.html">Cadastrar Grupo</a>
+        <a href="lista-grupo.html">Listar Grupos</a>
         
     </body>
 </html>

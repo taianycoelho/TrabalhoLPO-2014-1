@@ -23,7 +23,7 @@ import trabalho.lpo.db.GrupoDAO;
  *
  * @author LARISSA
  */
-@WebServlet(name = "CriaGrupo", urlPatterns = {"/cria-grupo.html"})
+@WebServlet(name = "CriaGrupo", urlPatterns = {"/criar-grupo.html"})
 public class CriaGrupo extends HttpServlet {
 
     private static GrupoDAO dao = null;
@@ -78,15 +78,12 @@ public class CriaGrupo extends HttpServlet {
         Grupo grupo = new Grupo();
         grupo.setTitulo(request.getParameter("titulo"));
         grupo.setDescricao(request.getParameter("descricao"));
-        grupo.setFase(Integer.valueOf(request.getParameter("fase")));
-        grupo.setCodProposta(Integer.valueOf(request.getParameter("cod_proposta")));
-        
-           
-
+        grupo.setFase(Integer.parseInt(request.getParameter("fase")));
+       
+ 
         dao.criar(grupo);
         response.sendRedirect("lista-grupo.html");
        } catch(Exception ex){
-           
            throw new ServletException(ex);      
        }
         

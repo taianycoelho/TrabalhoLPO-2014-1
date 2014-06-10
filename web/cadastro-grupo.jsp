@@ -8,13 +8,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <<head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de grupos - Trabalho LPO-2014-1</title>
         
         <!-- CSS -->
-        <style>
-            
+        <style>  
             body
             {
                 background-color: #f1f1f1;
@@ -105,7 +104,29 @@
             
         </style>
         <!-- CSS -->
-        
     </head>
+    
+    <body>
+        <h1>Cadastro de Grupos</h1>
+        <form action="" method="POST">
+            
+            <div>
+                <label>Titulo</label>
+                <input type="text" name="titulo" value="" />
+            </div>
+            <div>
+                <label>Nome do grupo: </label>
+                <input type="text" name="descricao" value="" />
+            </div>
+            <div>
+                <input type="hidden" name="fase" value="1" />
+            </div>
+ 
+            <input type="submit" value="Enviar" class="btnForm btnFormEnviar" />            
+            <input type="reset" value="Limpar" class="btnForm" />
+            <a href="index.jsp">Home</a>
+        
+        </form>
+    </body>
  
 </html>

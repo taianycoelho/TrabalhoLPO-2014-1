@@ -7,7 +7,7 @@
 <%@page import="trabalho.lpo.classes.Grupo"%>
 <%@page import="java.util.List"%>
 <%
-    List<Grupo> grupos = (List<Grupo>)request.getAttribute("grupo");
+    List<Grupo> grupos = (List<Grupo>)request.getAttribute("grupos");
 %>
 <html lang="pt-BR">
     
@@ -63,8 +63,8 @@
             
             <tr>
                 <th>#</th>
-                <th>Descrição</th>
                 <th>Titulo</th>
+                <th>Descricao</th>
                 <th>Fase</th>
             </tr>
             <%
@@ -73,10 +73,10 @@
             %>
             <tr>
                 <td><%= grupo.getCodGrupo()%></td>
-                <td><%= grupo.getDescricao()%></td>
                 <td><%= grupo.getTitulo()%></td>
+                <td><%= grupo.getDescricao()%></td>
                 <td><%= grupo.getFase()%></td>
-                <td><a href='exclui.do?cod_grupo=<%= grupo.getCodGrupo()%>'>Excluir</a></td>
+                <td><a href='exclui-grupo.do?cod_grupo=<%= grupo.getCodGrupo()%>'>Excluir</a></td>
                 <td><a href='edita-grupo.do?cod_grupo=<%= grupo.getCodGrupo()%>'>Editar</a></td>
             </tr>
             <%

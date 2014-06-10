@@ -31,9 +31,9 @@ public class GrupoDAO {
         conexao = ConexaoDB.getConnection();
         
         comandoListarGrupo = conexao.prepareStatement("SELECT * FROM grupo"); 
-        comandoCriarGrupo = conexao.prepareStatement("INSERT INTO grupo (titulo, descricao, fase, cod_proposta) VALUES(?,?,?,?)");
-        comandoExcluirGrupo = conexao.prepareStatement("DELETE FROM grupo WHERE cod_grupo = ?");
-        comandoSalvar = conexao.prepareStatement("UPDATE grupo SET titulo=?, descricao=?, fase=?, cod_proposta=? WHERE cod_grupo=?");
+        comandoCriarGrupo = conexao.prepareStatement("INSERT INTO grupo (titulo, descricao, fase) VALUES(?,?,?)");
+        comandoExcluirGrupo = conexao.prepareStatement("DELETE FROM grupo WHERE cod_grupo =?");
+        comandoSalvar = conexao.prepareStatement("UPDATE grupo SET titulo=?, descricao=?, fase=? WHERE cod_grupo=?");
         comandoBuscaPorCodGrupo = conexao.prepareStatement("SELECT * FROM grupo WHERE cod_grupo = ?");
         
     }
@@ -44,7 +44,6 @@ public class GrupoDAO {
             comandoCriarGrupo.setString(1, grupoNovo.getTitulo());
             comandoCriarGrupo.setString(2, grupoNovo.getDescricao());
             comandoCriarGrupo.setInt(3, grupoNovo.getFase());
-            comandoCriarGrupo.setInt(3, grupoNovo.getCodProposta());
             comandoCriarGrupo.executeUpdate();
      
     }
@@ -63,7 +62,6 @@ public class GrupoDAO {
             grupo.setDescricao(resultado.getString("descricao"));
             grupo.setTitulo(resultado.getString("titulo"));
             grupo.setFase(resultado.getInt("fase"));
-            grupo.setCodProposta(resultado.getInt("cod_proposta"));
         } else
         {
             throw new Exception("Não existe grupo com esse código: " + cod_grupo);
@@ -86,10 +84,20 @@ public class GrupoDAO {
         System.out.println("Comando Executado!");
         while (resultados.next())
         {
-            grupos.add(new Grupo(resultados.getInt("cod_grupo"), resultados.getString("descricao"), resultados.getString("titulo"), resultados.getInt("fase"), resultados.getInt("cod_proposta")));
+            grupos.add(new Grupo(resultados.getInt("cod_grupo"), resultados.getString("descricao"), resultados.getString("titulo"), resultados.getInt("fase")));
         }
         return grupos;
     }
     
+    
+    //Editar Gruoo
+    public void salvarGrupo(Grupo grupo) throws Exception
+    {
+        comandoSalvar.setString(1, grupo.getTitulo());
+        comandoSalvar.setString(2, grupo.getDescricao());
+        comandoSalvar.setInt(3, grupo.getFase());
+        comandoSalvar.setInt(4, grupo.getCodGrupo());
+        comandoSalvar.executeUpdate();
+    }
     
 }

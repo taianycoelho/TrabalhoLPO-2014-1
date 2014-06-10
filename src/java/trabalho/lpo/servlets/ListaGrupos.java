@@ -26,7 +26,7 @@ import trabalho.lpo.db.GrupoDAO;
  *
  * @author taiany.coelho
  */
- @WebServlet(name = "ListaGrupos", urlPatterns = {"/lista-grupos.html"})
+ @WebServlet(name = "ListaGrupos", urlPatterns = {"/lista-grupo.html"})
 public class ListaGrupos extends HttpServlet {
 
     private static Connection conexao = null;
